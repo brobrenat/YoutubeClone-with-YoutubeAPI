@@ -8,9 +8,8 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: flex;
-    gap: 20px;
+    gap: 0px;
     margin-bottom: -40px;
-    
   }
   
   .card {
@@ -31,7 +30,6 @@
     padding-top: 20px;
     margin-left: 10px;
     font-size: 25px;
-    
   }
   
   .shortfeed h3 {
@@ -41,22 +39,28 @@
   
   .shorts-container {
     display: flex;
-    align-content: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
     justify-content: flex-start;
     margin-bottom: 40px;
     margin-top: 15px;
-    width: 100%;
+    margin-right: 20px;
+  }
+  .shorts-container .card{
+    width: 200px;
+    height: 500px;
+    gap: 10px;
   }
 
+
   .shortcard {
-    width: 100%;
+    width: 20px;
+    margin: 10px; 
   }
   
   .shortcard img {
     object-fit: cover;
     border-radius: 10px;
-    width: 180px !important;
-    height: 360px !important;
   }
 
   .shortcard h2{
@@ -82,7 +86,9 @@
     align-items: left;      
     margin-top: 10px;      
   }
-  
+  .card {
+   max-width: 50;
+  }
 
   .channelprofile .channelpicture {
     width: 45px;
@@ -128,3 +134,33 @@
     }
   
   }
+
+  .show-more-container {
+    position: relative;
+    text-align: center; 
+    margin-top: -30px;  
+    z-index: 1;        
+}
+
+
+.show-more-button, .show-less-button{
+    padding: 8px 16px;
+    background-color: #007bff; 
+    color: #fff;               
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+}
+
+
+
+
+ hr{
+  position: relative;
+  width: 90%;
+  top: -15px;
+  margin-left: 20px;
+
+}

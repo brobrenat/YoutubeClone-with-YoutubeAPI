@@ -1,4 +1,4 @@
-import React, { useEffect, useState  } from "react";
+import React, { useEffect, useState ,useRef } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './Reccomended.css'
 import 'swiper/css';
@@ -12,6 +12,9 @@ import { Link } from "react-router-dom";
 
 const Reccomended = ({categoryId}) => {
     const [apiData,setApiData] = useState([]);
+    const [isBeginning, setIsBeginning] = useState(true);
+    const [isEnd, setIsEnd] = useState(false);
+    const swiperRef = useRef(null);
 
     const fetchData = async () =>{
         const relatedVideo_url =`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=45&regionCode=US&videoCategoryId=${categoryId}&key=${API_KEY}`;
@@ -33,15 +36,21 @@ const Reccomended = ({categoryId}) => {
        <div className="shortreccomended">
         <hr />
         <h3>Shorts</h3>
-        <div className="swiper-container">
+        <div className={`swiper-container ${isBeginning ? 'is-beginning' : ''} ${isEnd ? 'is-end' : ''}`}>
           <Swiper
-  
-            spaceBetween={20}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSlideChange={(swiper) => {
+                  setIsBeginning(swiper.isBeginning);
+                  setIsEnd(swiper.isEnd);
+             }}
+            spaceBetween={1}
             slidesPerView={3}
             navigation={true}
             pagination={{ clickable: true }}
             modules={[Navigation]}
             className="mySwiper"
+
+            
           >
             {apiData.slice(3,9).map((item,index)=>{
               return(
@@ -59,6 +68,7 @@ const Reccomended = ({categoryId}) => {
             })}
 
           </Swiper>
+          
         
          </div>
          <hr />

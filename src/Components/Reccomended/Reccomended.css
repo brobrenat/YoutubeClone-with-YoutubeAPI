@@ -13,6 +13,7 @@
 
 .sidevideo img{
     width: 50%;
+    border-radius: 4%;
 }
 
 .videoinfo {
@@ -74,23 +75,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.9; 
+    opacity: 0.7; 
     margin-left: -10px;
-    background-color: white;
-    padding: 20px 16px;
+    background-color: gray;
+    padding: 23px 23px;
     border-radius: 100%;
-    border: 2px solid black;
     margin-top: -80px !important;
     margin-right: 5px!important;
     margin-left: -15px;
-
-
+    color: white !important;
+    font-size: 2px;
   }
+
+  .swiper-container.is-beginning .swiper-button-prev {
+    display: none;
+}
+
+.swiper-container.is-end .swiper-button-next {
+    display: none;
+}
 
 
 
 .swiper-button-prev::after, .swiper-button-next::after {
-    font-size: 18px; 
+    font-size: 1px; 
     color: #000000;
     size: 40%;
 }
@@ -100,7 +108,7 @@
 }
 
 
-@media (max-width:900px) {
+@media (max-width:950px) {
   .shortreccomended{
     display: none;
   }
