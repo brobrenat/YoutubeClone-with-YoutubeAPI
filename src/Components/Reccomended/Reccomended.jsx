@@ -27,9 +27,6 @@ const Reccomended = ({categoryId}) => {
     
 
 
-
-    
-
   return (
     <div className='reccommended'>
        
